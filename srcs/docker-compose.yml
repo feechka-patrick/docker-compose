@@ -1,0 +1,57 @@
+version: "3.7"
+
+volumes:
+    wordpress:
+        name: wordpress
+        driver: local
+        driver_opts:
+            device: /home/nmisfit/data/wordpress
+            o: bind
+            type: none
+    mariadb:
+        name: mariadb
+        driver: local
+        driver_opts:
+            device: /home/nmisfit/data/mariadb
+            o: bind
+            type: none
+
+services:
+    mariadb:
+        image: wordpress
+        build: ./requirements/mariadb
+        restart: always
+        container_name: mariadb_container
+        volumes:
+          - mariadb:/var/lib/mysql
+        networks: 
+          - mynetwork
+
+    nginx:
+        build: ./requirements/nginx
+        container_name: nginx_container
+
+        ports: 
+          - 443:443
+        restart: always
+        volumes:
+          - wordpress:/var/lib/nginx
+        depends_on:
+          - wordpress
+        networks: 
+          - mynetwork
+
+    wordpress:
+        build: ./requirements/wordpress
+        container_name: wordpress_container
+        restart: always
+        volumes:
+          - wordpress:/var/www/wordpress
+        depends_on:
+          - mariadb
+        networks: 
+          - mynetwork
+
+networks:
+    mynetwork:
+        driver: bridge
