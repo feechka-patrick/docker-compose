@@ -18,10 +18,9 @@ volumes:
 
 services:
     mariadb:
-        image: wordpress
         build: ./requirements/mariadb
         restart: always
-        container_name: mariadb_container
+        container_name: mariadb
         volumes:
           - mariadb:/var/lib/mysql
         networks: 
@@ -29,21 +28,22 @@ services:
 
     nginx:
         build: ./requirements/nginx
-        container_name: nginx_container
+        container_name: nginx
 
         ports: 
           - 443:443
         restart: always
         volumes:
-          - wordpress:/var/lib/nginx
+          - wordpress:/var/www/wordpress
         depends_on:
           - wordpress
         networks: 
           - mynetwork
 
     wordpress:
+        #image: wordpress
         build: ./requirements/wordpress
-        container_name: wordpress_container
+        container_name: wordpress
         restart: always
         volumes:
           - wordpress:/var/www/wordpress
@@ -54,4 +54,4 @@ services:
 
 networks:
     mynetwork:
-        driver: bridge
+        name: mynetwork
