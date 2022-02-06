@@ -1,35 +1,28 @@
 <?php
 
+/**define( 'DB_NAME', '${DB_NAME}' );
+
+define( 'DB_USER', '${DB_USER}' );
+
+define( 'DB_PASSWORD', '${DB_PASSWORD}' );
+
+define( 'DB_HOST', '${DB_HOST}' ); */
+
 define( 'DB_NAME', 'wordpress' );
 
-/** Database username */
 define( 'DB_USER', 'nmisfit' );
 
-/** Database password */
 define( 'DB_PASSWORD', 'password' );
 
-/** Database hostname */
 define( 'DB_HOST', 'mariadb' );
 
-/** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
 
-/** The database collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
 
-define( 'WP_ALLOW_REPAIR', true );
+define( 'WP_ALLOW_REPAIR', true ); 
 
-/**#@+
- * Authentication unique keys and salts.
- *
- * Change these to different unique phrases! You can generate these using
- * the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}.
- *
- * You can change these at any point in time to invalidate all existing cookies.
- * This will force all users to have to log in again.
- *
- * @since 2.6.0
- */
+
 define('AUTH_KEY',         ';FB*d&?o9r<dMoLcG]R?c(d^Hj(3mr!`LjBFw2S}Rc_b:FY{:YfBSPil1Uy0^1=$');
 define('SECURE_AUTH_KEY',  '0Q0t0.x^sw):N3y|Eg-OIvnd_wG0_N}pHPq9!zo5~(Rp|4:/j+.q!UthLw{[xd(q');
 define('LOGGED_IN_KEY',    '*]* #8k_-J!GmZc5Ph;X~RNwhmd|_F+E>-OX0&d;gsHR5Qv|XWa%mqaib62#X|?T');
@@ -39,6 +32,7 @@ define('SECURE_AUTH_SALT', '+kF>/nfhi3B+1HK+3UA|Nv@.c$:~F#Jl=hL8.9H_eqB>19cT0!IW
 define('LOGGED_IN_SALT',   'V7*IeG}O#=b6g9A}D+ses612:YXHvgs]aVap&$u:U8`|7/S-=(|Q1^yZf@fy A)9');
 define('NONCE_SALT',       '+=/+|%H-uA@GmRS1QD:WcSenU-d.:+;KiRFY|mAmVrf{qb~ioaEKZxiktQ%*ITe7');
 
+	
 /**#@-*/
 
 /**
