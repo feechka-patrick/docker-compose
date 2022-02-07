@@ -1,27 +1,18 @@
 <?php
 
-/**define( 'DB_NAME', '${DB_NAME}' );
+define( 'DB_NAME', WORDPRESS_NAME );
 
-define( 'DB_USER', '${DB_USER}' );
+define( 'DB_USER', WORDPRESS_USER );
 
-define( 'DB_PASSWORD', '${DB_PASSWORD}' );
+define( 'DB_PASSWORD', WORDPRESS_PASSWORD );
 
-define( 'DB_HOST', '${DB_HOST}' ); */
-
-define( 'DB_NAME', 'wordpress' );
-
-define( 'DB_USER', 'nmisfit' );
-
-define( 'DB_PASSWORD', 'password' );
-
-define( 'DB_HOST', 'mariadb' );
+define( 'DB_HOST', WORDPRESS_HOST ); 
 
 define( 'DB_CHARSET', 'utf8' );
 
 define( 'DB_COLLATE', '' );
 
 define( 'WP_ALLOW_REPAIR', true ); 
-
 
 define('AUTH_KEY',         ';FB*d&?o9r<dMoLcG]R?c(d^Hj(3mr!`LjBFw2S}Rc_b:FY{:YfBSPil1Uy0^1=$');
 define('SECURE_AUTH_KEY',  '0Q0t0.x^sw):N3y|Eg-OIvnd_wG0_N}pHPq9!zo5~(Rp|4:/j+.q!UthLw{[xd(q');

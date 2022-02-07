@@ -24,13 +24,11 @@ services:
             DB_NAME: ${DB_NAME}
             DB_USER: ${DB_USER}
             DB_USER_PASSWORD: ${DB_USER_PASSWORD}
-            DB_ROOT: ${DB_ROOT}
             DB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
         environment:
           - DB_NAME=${DB_NAME}
           - DB_USER=${DB_USER}
           - DB_USER_PASSWORD=${DB_USER_PASSWORD}
-          - DB_ROOT=${DB_ROOT}
           - DB_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
         restart: always
         container_name: mariadb

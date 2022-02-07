@@ -5,22 +5,18 @@ ARG DB_USER
 ARG DB_USER_PASSWORD
 ARG DB_ROOT_PASSWORD 
 
-#ENV DB_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
-
-RUN apt-get update 
-RUN apt-get install mariadb-server -y
+RUN apt-get update \
+&& apt-get install mariadb-server -y
 
 COPY ./50-server.cnf /etc/mysql/mariadb.conf.d/
 COPY ./createdb.sql /
 COPY ./wordpress.sql /
 
+COPY ./edit-env.sh ./
+RUN bash ./edit-env.sh
+
 RUN service mysql start && mysql < createdb.sql \
-    && rm -f createdb.sql
-
-RUN echo \"$DB_ROOT_PASSWORD\"
-
-RUN service mysql start && mysql -p"$MYSQL_ROOT_PASSWORD" wordpress < wordpress.sql \
-    && rm -f wordpress.sql
+&& mysql -u root -p"$DB_ROOT_PASSWORD" wordpress < wordpress.sql 
 
 EXPOSE 3306
 
